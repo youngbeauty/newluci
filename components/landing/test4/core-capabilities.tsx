@@ -36,6 +36,7 @@ export function CoreCapabilities() {
                 />
               </svg>
             }
+            image="/images/image 3381.png"
             reverse={false}
           />
 
@@ -59,6 +60,7 @@ export function CoreCapabilities() {
                 />
               </svg>
             }
+            image="/images/image 3382.png"
             reverse={true}
           />
 
@@ -105,6 +107,7 @@ export function CoreCapabilities() {
                 />
               </svg>
             }
+            image="/images/transcription.jpg"
             reverse={true}
           />
 
@@ -164,6 +167,7 @@ interface CapabilityRowProps {
   subtitle: string;
   description: string;
   icon: React.ReactNode;
+  image?: string;
   reverse: boolean;
 }
 
@@ -172,6 +176,7 @@ function CapabilityRow({
   subtitle,
   description,
   icon,
+  image,
   reverse,
 }: CapabilityRowProps) {
   return (
@@ -191,30 +196,43 @@ function CapabilityRow({
         <p className="text-lg text-text-2">{description}</p>
       </div>
 
-      {/* Visual Placeholder */}
+      {/* Visual Content */}
       <div className={reverse ? "lg:col-start-1 lg:row-start-1" : ""}>
-        <div className="group relative overflow-hidden rounded-3xl border border-grey-1/20 bg-gradient-to-br from-royal-0/50 via-bg-0/50 to-brand-0/50 p-12 backdrop-blur-sm transition-all duration-500 hover:border-grey-1/40 hover:shadow-[0_30px_80px_rgba(65,105,225,0.2)] dark:border-grey-2/20 dark:from-grey-8/50 dark:via-bg-1/50 dark:to-grey-7/50 dark:hover:border-grey-2/40">
+        <div className="group relative overflow-hidden rounded-3xl border border-grey-1/20 bg-gradient-to-br from-royal-0/50 via-bg-0/50 to-brand-0/50 backdrop-blur-sm transition-all duration-500 hover:border-grey-1/40 hover:shadow-[0_30px_80px_rgba(65,105,225,0.2)] dark:border-grey-2/20 dark:from-grey-8/50 dark:via-bg-1/50 dark:to-grey-7/50 dark:hover:border-grey-2/40">
           {/* Gradient glow background */}
           <div className="absolute inset-0 bg-gradient-to-br from-royal-5/5 via-brand-5/5 to-royal-5/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-          {/* Icon and placeholder content */}
-          <div className="relative flex aspect-[4/3] flex-col items-center justify-center">
-            {/* Icon */}
-            <div className="mb-6 rounded-2xl bg-gradient-to-br from-royal-5/10 to-brand-5/10 p-6 text-royal-5 transition-transform duration-500 group-hover:scale-110 dark:text-royal-4">
-              {icon}
+          {image ? (
+            /* Image content */
+            <div className="relative aspect-[4/3]">
+              <img
+                src={image}
+                alt={title}
+                className="h-full w-full object-cover"
+              />
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-royal-5/0 to-brand-5/0 opacity-0 transition-all duration-500 group-hover:from-royal-5/10 group-hover:to-brand-5/10 group-hover:opacity-100" />
             </div>
+          ) : (
+            /* Icon and placeholder content */
+            <div className="relative flex aspect-[4/3] flex-col items-center justify-center p-12">
+              {/* Icon */}
+              <div className="mb-6 rounded-2xl bg-gradient-to-br from-royal-5/10 to-brand-5/10 p-6 text-royal-5 transition-transform duration-500 group-hover:scale-110 dark:text-royal-4">
+                {icon}
+              </div>
 
-            {/* Placeholder text */}
-            <div className="text-center">
-              <p className="text-sm font-medium text-text-2">
-                Visual demonstration
-              </p>
-              <p className="text-xs text-text-3">Coming soon</p>
+              {/* Placeholder text */}
+              <div className="text-center">
+                <p className="text-sm font-medium text-text-2">
+                  Visual demonstration
+                </p>
+                <p className="text-xs text-text-3">Coming soon</p>
+              </div>
+
+              {/* Decorative dots pattern */}
+              <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_1px_1px,rgba(65,105,225,0.15)_1px,transparent_1px)] [background-size:24px_24px]" />
             </div>
-
-            {/* Decorative dots pattern */}
-            <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_1px_1px,rgba(65,105,225,0.15)_1px,transparent_1px)] [background-size:24px_24px]" />
-          </div>
+          )}
 
           {/* Corner gradient accent */}
           <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br from-royal-5/30 to-brand-5/30 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />

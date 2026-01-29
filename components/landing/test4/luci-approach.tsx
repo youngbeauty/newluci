@@ -144,24 +144,26 @@ function FeatureCard({
         className={`absolute inset-0 bg-gradient-to-br ${gradientFrom} ${gradientTo} opacity-0 transition-opacity duration-300 group-hover:opacity-[0.03]`}
       />
 
-      {/* Icon placeholder area */}
-      <div className="relative mb-6 flex aspect-[4/3] items-center justify-center rounded-2xl border border-grey-1/10 bg-gradient-to-br from-royal-0/50 to-brand-0/50 dark:from-grey-8/50 dark:to-grey-7/50">
-        {/* Decorative gradient overlay */}
-        <div
-          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} opacity-5`}
+      {/* Icon area with image */}
+      <div className="relative mb-6 flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-grey-1/10 bg-gradient-to-br from-royal-0/50 to-brand-0/50 dark:from-grey-8/50 dark:to-grey-7/50">
+        {/* Feature image */}
+        <img
+          src="/images/feature-notes.jpg"
+          alt={title}
+          className="h-full w-full object-cover opacity-90"
         />
 
-        {/* Icon */}
+        {/* Gradient overlay */}
         <div
-          className={`relative bg-gradient-to-br ${gradientFrom} ${gradientTo} bg-clip-text text-transparent`}
-        >
-          {icon}
-        </div>
+          className={`absolute inset-0 bg-gradient-to-br ${gradientFrom} ${gradientTo} opacity-10`}
+        />
 
-        {/* Placeholder text */}
-        <div className="absolute bottom-3 right-3">
-          <div className="rounded-lg bg-bg-0/80 px-3 py-1.5 text-xs font-medium text-text-3 backdrop-blur-sm dark:bg-bg-1/80">
-            Visual placeholder
+        {/* Icon overlay */}
+        <div
+          className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br ${gradientFrom} ${gradientTo} bg-clip-text text-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
+        >
+          <div className="rounded-2xl bg-bg-0/90 p-4 backdrop-blur-sm dark:bg-bg-1/90">
+            {icon}
           </div>
         </div>
       </div>

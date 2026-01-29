@@ -46,21 +46,15 @@ export function WhyFail() {
             </div>
           </div>
 
-          {/* Right Column - Visual Placeholder */}
+          {/* Right Column - Comparison Image */}
           <div className="flex items-center">
-            <GradientBlock>
-              <div className="flex aspect-square items-center justify-center">
-                <div className="text-center">
-                  <div className="mb-4 text-6xl opacity-50">📊</div>
-                  <p className="text-sm font-medium text-white/80">
-                    Illustration placeholder
-                  </p>
-                  <p className="text-xs text-white/60">
-                    Visual comparison coming soon
-                  </p>
-                </div>
-              </div>
-            </GradientBlock>
+            <div className="relative overflow-hidden rounded-3xl border border-grey-1/20 bg-gradient-to-br from-royal-0/50 to-brand-0/50 shadow-[0_20px_60px_rgba(65,105,225,0.15)] dark:border-grey-2/20">
+              <img
+                src="/images/comparison.jpg"
+                alt="Comparison of traditional meeting assistants vs Lucy Desktop"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
